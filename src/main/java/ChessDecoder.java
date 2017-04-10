@@ -20,7 +20,9 @@ public class ChessDecoder {
   private void checkInput(String game) throws InvalidChessGameException {
     String[] rows = game.split("/");
     
-    if (rows.length < 8) {
+    System.out.println("rows.length is " + rows.length);
+    
+    if (rows.length != 8) {
       throw new InvalidChessGameException("wrong number of rows");
     }
     
@@ -33,7 +35,7 @@ public class ChessDecoder {
           count += val;
         } else {
           if(!PIECES.contains((""+character).toLowerCase())) {
-            throw new InvalidChessGameException("unknown chess peice");
+            throw new InvalidChessGameException("unknown chess piece");
           }
           count += 1;
         }
